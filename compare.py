@@ -1,22 +1,25 @@
 import csv
 import numpy as np 
 from PIL import Image
-from math import pow
+import math
+import glob
+
+# list down path in directories
+txtfiles = []
+for file in glob.glob('*.jpg'):
+	print(file)
+
 
 # 1st image load
 i = Image.open('2011.03_2011.04.jpg')
 pixels = i.load() # this is not a list, nor is it list()'able
 width, height = i.size
 
-print(i.size)
-
-
 # 2nd image load
 i2 = Image.open('2011.05_2012.04.jpg')
 pixels2 = i2.load() # this is not a list, nor is it list()'able
 width2, height2 = i2.size
 
-print(i2.size)
 
 # Extract RGB values for each pixel
 all_pixels1 = []
@@ -39,13 +42,17 @@ array2 = np.array(all_pixels2)
 result = np.subtract(array1, array2)
 
 #calculate using formula
-# for inner_result in result:
-#     for item in inner_result:
-#         sqr = item ** 2
+list2 = []
+def calculate(numberOfArray):
+	for element in numberOfArray:
+		data = element * element
+		squared_root = math.sqrt(sum(data))
+		list2.append(squared_root)
 
-# print(sqr)
+finalResult = calculate(result)
 
-#Save in CSV file
+
+# Save in CSV file
 # with open('data.csv', 'w') as csvFile:
 #     writer = csv.writer(csvFile)
 #     writer.writerows(all_pixels1)
@@ -60,7 +67,7 @@ result = np.subtract(array1, array2)
 
 with open('result.csv', 'w') as csvFile3:
     writer3 = csv.writer(csvFile3)
-    writer3.writerows(result)
+    writer3.writerow(list2)
 
 csvFile3.close()
 
