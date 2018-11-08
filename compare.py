@@ -4,11 +4,6 @@ from PIL import Image
 import math
 import glob
 
-# list down path in directories
-txtfiles = []
-for file in glob.glob('*.jpg'):
-	print(file)
-
 
 # 1st image load
 i = Image.open('2011.03_2011.04.jpg')
