@@ -51,47 +51,9 @@ def calculate(numberOfArray):
 
 finalResult = calculate(result)
 
-
-# Save in CSV file
-# with open('data.csv', 'w') as csvFile:
-#     writer = csv.writer(csvFile)
-#     writer.writerows(all_pixels1)
-
-# csvFile.close()
-
-# with open('data2.csv', 'w') as csvFile2:
-#     writer2 = csv.writer(csvFile2)
-#     writer2.writerows(all_pixels2)
-
-# csvFile2.close()
-
+#save to csv
 with open('result.csv', 'w') as csvFile3:
     writer3 = csv.writer(csvFile3)
     writer3.writerow(list2)
 
 csvFile3.close()
-
-
-# im = Image.open('2.jpg')
-
-# pix = im.load()
-
-# width, height = im.size
-
-# csvData = list(im.getdata())
-
-# import PIL
-# from PIL import Image
-# FILENAME='1.jpg' #image can be in gif jpeg or png format 
-# im=Image.open(FILENAME).convert('RGB')
-# pix=im.load()
-# w=im.size[0]
-# h=im.size[1]
-# for i in range(w):
-#   for j in range(h):
-#     print(pix[i,j])
-#     
-#     
-#     
-
-
